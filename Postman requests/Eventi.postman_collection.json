@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "7b3b3589-4d84-4c4b-b0e4-799cac4975c5",
+		"name": "Eventi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "Cities",
+					"item": [
+						{
+							"name": "Get Cities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Cities",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Cities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get City",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Cities/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Cities",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Participants",
+					"item": [
+						{
+							"name": "Get Participants",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Participants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Participants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Participant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Participants/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Participants",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "Get Locations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Locations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Location",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Locations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Locations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Get Events",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Event",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Events/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Events",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Event Participants",
+					"item": [
+						{
+							"name": "Get Event Participants",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/EventParticipatns",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"EventParticipatns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Event Participant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/EventParticipatns/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"EventParticipatns",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Cities",
+					"item": [
+						{
+							"name": "Create City",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Grad5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Cities",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Cities"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Participants",
+					"item": [
+						{
+							"name": "Create Participant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"First_Name\": \"Ime1\",\r\n    \"Last_Name\": \"Prezime1\",\r\n    \"Adress\": \"Adresa1\",\r\n    \"CityID\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Participants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Participants"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "Create Location",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"Name\": \"ImeLokacije1\",\r\n    \"Adress\": \"AdresaLokacije1\",\r\n    \"CityID\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Locations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Locations"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Create Event",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"Name\": \"ImeLokacije1\",\r\n    \"Adress\": \"AdresaLokacije1\",\r\n    \"CityID\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Events"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Event Participants",
+					"item": [
+						{
+							"name": "Create Event Participants",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"CityID\": 1,\r\n        \"EventID\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/EventParticipatns",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"EventParticipatns"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Put",
+			"item": [
+				{
+					"name": "Cities",
+					"item": [
+						{
+							"name": "Update City",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"CityID\": 2,\r\n    \"Name\": \"Grad4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Cities/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Cities",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Participants",
+					"item": [
+						{
+							"name": "Update Participant",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ParticipantsID\": \"1\",\r\n    \"First_Name\": \"Ime21\",\r\n    \"Last_Name\": \"Prezime1\",\r\n    \"Adress\": \"Adresa1\",\r\n    \"CityID\": \"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Participants/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Participants",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "Update Location",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"LocationID\": 1,\r\n    \"Name\": \"ImeLokacije2\",\r\n    \"Adress\": \"AdresaLokacije1\",\r\n    \"CityID\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Locations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Locations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Update Event",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"EventID\": 1,\r\n    \"Name\": \"ImeEventa2\",\r\n    \"Ongoing\": false,\r\n    \"StartDate\": \"2020-06-06T00:00:00\",\r\n    \"EndDate\": \"2020-06-20T00:00:00\",\r\n    \"LocationID\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Events/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Events",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Event Participants",
+					"item": [
+						{
+							"name": "Update Event Participant",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"EventParticipantsID\": 1,\r\n    \"CityID\": 2,\r\n    \"EventID\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/EventParticipatns/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"EventParticipatns",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "Cities",
+					"item": [
+						{
+							"name": "Delete City",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:56521/api/Cities/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Cities",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Participants",
+					"item": [
+						{
+							"name": "Delete Participant",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Participants/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Participants",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "Delete Location",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Locations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Locations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Delete Event",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/Events/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"Events",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Event Participants",
+					"item": [
+						{
+							"name": "Delete Event Participant",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:56521/api/EventParticipatns/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "56521",
+									"path": [
+										"api",
+										"EventParticipatns",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
