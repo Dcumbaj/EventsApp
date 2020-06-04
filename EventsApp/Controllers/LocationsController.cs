@@ -86,7 +86,7 @@ namespace EventsApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/Locations
@@ -128,7 +128,7 @@ namespace EventsApp.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Ne postoji lokacija sa ovim ID-em");
+                return BadRequest("Lokacija je vezana na entitet ili ne postoji");
             }
             finally
             {

@@ -87,7 +87,7 @@ namespace EventsApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/Cities
@@ -129,11 +129,11 @@ namespace EventsApp.Controllers
                 db.Cities.Attach(city);
                 db.Entry(city).State = EntityState.Deleted;
                 db.SaveChanges();
-                return Ok(city.Name);
+                return Ok();
             }
             catch(Exception e)
             {
-                return BadRequest("Ne postoji grad sa ovim ID-em");
+                return BadRequest("Grad je vezan na neki entitet ili grad ne postoji");
             }
             finally
             {

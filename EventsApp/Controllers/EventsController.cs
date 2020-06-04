@@ -87,7 +87,7 @@ namespace EventsApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/Events
@@ -137,7 +137,7 @@ namespace EventsApp.Controllers
             }
             catch(Exception e)
             {
-                return BadRequest("Ne postoji event sa ovim ID-em");
+                return BadRequest("Event je vezan na neki entitet ili event ne postoji");
             }
             finally
             {

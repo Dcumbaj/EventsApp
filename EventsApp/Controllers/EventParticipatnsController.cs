@@ -83,7 +83,7 @@ namespace EventsApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/EventParticipatns

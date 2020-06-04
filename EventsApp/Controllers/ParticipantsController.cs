@@ -88,7 +88,7 @@ namespace EventsApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/Participants
@@ -127,11 +127,11 @@ namespace EventsApp.Controllers
                 db.Participants.Attach(participant);
                 db.Entry(participant).State = EntityState.Deleted;
                 db.SaveChanges();
-                return Ok(participant.First_Name + " " + participant.Last_Name);
+                return Ok();
             }
             catch (Exception e)
             {
-                return BadRequest("Ne postoji participant sa ovim ID-em");
+                return BadRequest("Participant je vezan na neki entitet ili participant ne postoji");
             }
             finally
             {
