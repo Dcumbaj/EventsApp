@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Test2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventParticipatns">
+          <Key>
+            <PropertyRef Name="EventParticipantsID" />
+          </Key>
+          <Property Name="EventParticipantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Ongoing" Type="bit" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adress" Type="varchar" MaxLength="255" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participants">
+          <Key>
+            <PropertyRef Name="ParticipantsID" />
+          </Key>
+          <Property Name="ParticipantsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adress" Type="varchar" MaxLength="255" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__EventPart__CityI__05D8E0BE">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="EventParticipatns" Type="Self.EventParticipatns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="EventParticipatns">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EventPart__Event__06CD04F7">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="EventParticipatns" Type="Self.EventParticipatns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="EventParticipatns">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Events__Location__02FC7413">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Locations__CityI__00200768">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__CityI__7D439ABD">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Participants" Type="Self.Participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Test2ModelStoreContainer">
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventParticipatns" EntityType="Self.EventParticipatns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participants" EntityType="Self.Participants" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EventPart__CityI__05D8E0BE" Association="Self.FK__EventPart__CityI__05D8E0BE">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="EventParticipatns" EntitySet="EventParticipatns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EventPart__Event__06CD04F7" Association="Self.FK__EventPart__Event__06CD04F7">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventParticipatns" EntitySet="EventParticipatns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Events__Location__02FC7413" Association="Self.FK__Events__Location__02FC7413">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Locations__CityI__00200768" Association="Self.FK__Locations__CityI__00200768">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__CityI__7D439ABD" Association="Self.FK__Participa__CityI__7D439ABD">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Test2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EventParticipatns" Relationship="Self.FK__EventPart__CityI__05D8E0BE" FromRole="Cities" ToRole="EventParticipatns" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK__Locations__CityI__00200768" FromRole="Cities" ToRole="Locations" />
+          <NavigationProperty Name="Participants" Relationship="Self.FK__Participa__CityI__7D439ABD" FromRole="Cities" ToRole="Participants" />
+        </EntityType>
+        <EntityType Name="EventParticipatns">
+          <Key>
+            <PropertyRef Name="EventParticipantsID" />
+          </Key>
+          <Property Name="EventParticipantsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__EventPart__CityI__05D8E0BE" FromRole="EventParticipatns" ToRole="Cities" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__EventPart__Event__06CD04F7" FromRole="EventParticipatns" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ongoing" Type="Boolean" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EventParticipatns" Relationship="Self.FK__EventPart__Event__06CD04F7" FromRole="Events" ToRole="EventParticipatns" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK__Events__Location__02FC7413" FromRole="Events" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Locations__CityI__00200768" FromRole="Locations" ToRole="Cities" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Events__Location__02FC7413" FromRole="Locations" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Participants">
+          <Key>
+            <PropertyRef Name="ParticipantsID" />
+          </Key>
+          <Property Name="ParticipantsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Participa__CityI__7D439ABD" FromRole="Participants" ToRole="Cities" />
+        </EntityType>
+        <Association Name="FK__EventPart__CityI__05D8E0BE">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="EventParticipatns" Type="Self.EventParticipatns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="EventParticipatns">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Locations__CityI__00200768">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__CityI__7D439ABD">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Participants" Type="Self.Participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EventPart__Event__06CD04F7">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="EventParticipatns" Type="Self.EventParticipatns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="EventParticipatns">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Events__Location__02FC7413">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventEntites" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="EventParticipatns" EntityType="Self.EventParticipatns" />
+          <EntitySet Name="Events" EntityType="Self.Events" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" />
+          <EntitySet Name="Participants" EntityType="Self.Participants" />
+          <AssociationSet Name="FK__EventPart__CityI__05D8E0BE" Association="Self.FK__EventPart__CityI__05D8E0BE">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="EventParticipatns" EntitySet="EventParticipatns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Locations__CityI__00200768" Association="Self.FK__Locations__CityI__00200768">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__CityI__7D439ABD" Association="Self.FK__Participa__CityI__7D439ABD">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EventPart__Event__06CD04F7" Association="Self.FK__EventPart__Event__06CD04F7">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventParticipatns" EntitySet="EventParticipatns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Events__Location__02FC7413" Association="Self.FK__Events__Location__02FC7413">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Test2ModelStoreContainer" CdmEntityContainer="EventEntites">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Test2Model.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventParticipatns">
+            <EntityTypeMapping TypeName="Test2Model.EventParticipatns">
+              <MappingFragment StoreEntitySet="EventParticipatns">
+                <ScalarProperty Name="EventParticipantsID" ColumnName="EventParticipantsID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="Test2Model.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Ongoing" ColumnName="Ongoing" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="Test2Model.Locations">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participants">
+            <EntityTypeMapping TypeName="Test2Model.Participants">
+              <MappingFragment StoreEntitySet="Participants">
+                <ScalarProperty Name="ParticipantsID" ColumnName="ParticipantsID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
